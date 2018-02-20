@@ -13,7 +13,6 @@
     <artifactId>sub_demo_3</artifactId>
 
     <properties>
-        <helm.maven.plugin.version>2.7.0.1.0.33</helm.maven.plugin.version>
         <k8s.namespace>sub-demo-3</k8s.namespace>
     </properties>
 
@@ -22,15 +21,8 @@
             <plugin>
                 <groupId>org.microbean</groupId>
                 <artifactId>helm-maven-plugin</artifactId>
-                <version>${helm.maven.plugin.version}</version>
                 <configuration>
-                    <version>1</version>
-                    <releaseName>${project.artifactId}</releaseName>
-                    <releaseDiscoveryListeners>
-                        <abstractDiscoveryListener/>
-                    </releaseDiscoveryListeners>
-                    <namespace>${k8s.namespace}</namespace>
-                    <skip>true</skip>
+                  <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

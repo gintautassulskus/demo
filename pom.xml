@@ -27,6 +27,15 @@
                     <groupId>org.microbean</groupId>
                     <artifactId>helm-maven-plugin</artifactId>
                     <version>${helm.maven.plugin.version}</version>
+                    <configuration>
+                        <version>1</version>
+                        <releaseName>${project.artifactId}</releaseName>
+                        <releaseDiscoveryListeners>
+                            <abstractDiscoveryListener/>
+                        </releaseDiscoveryListeners>
+                        <namespace>${k8s.namespace}</namespace>
+                        <releaseNamespace>${k8s.namespace}</releaseNamespace>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -34,37 +43,10 @@
             <plugin>
                 <groupId>org.microbean</groupId>
                 <artifactId>helm-maven-plugin</artifactId>
-                <version>${helm.maven.plugin.version}</version>
+                <inherited>false</inherited>
                 <configuration>
-                    <version>1</version>
-                    <releaseName>${project.artifactId}</releaseName>
-                    <releaseDiscoveryListeners>
-                        <abstractDiscoveryListener/>
-                    </releaseDiscoveryListeners>
-                    <namespace>${k8s.namespace}</namespace>
-                    <releaseNamespace>${k8s.namespace}</releaseNamespace>
+                    <skip>true</skip>
                 </configuration>
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>install</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--&lt;!&ndash;none required&ndash;&gt;-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>status</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<releaseName>mandatory</releaseName>-->
-                            <!--<version>1</version>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                <!--</executions>-->
             </plugin>
         </plugins>
         <extensions>
