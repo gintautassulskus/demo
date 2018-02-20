@@ -38,13 +38,33 @@
                 <configuration>
                     <version>1</version>
                     <releaseName>${project.artifactId}</releaseName>
-                    <chartUrl>file:${project.basedir}/src/helm</chartUrl>
                     <releaseDiscoveryListeners>
                         <abstractDiscoveryListener/>
                     </releaseDiscoveryListeners>
                     <namespace>${k8s.namespace}</namespace>
-                    <!--<skip>true</skip>-->
+                    <releaseNamespace>${k8s.namespace}</releaseNamespace>
                 </configuration>
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>install</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--&lt;!&ndash;none required&ndash;&gt;-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>status</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<releaseName>mandatory</releaseName>-->
+                            <!--<version>1</version>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
             </plugin>
         </plugins>
         <extensions>

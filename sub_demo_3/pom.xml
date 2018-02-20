@@ -17,4 +17,23 @@
         <k8s.namespace>sub-demo-3</k8s.namespace>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.microbean</groupId>
+                <artifactId>helm-maven-plugin</artifactId>
+                <version>${helm.maven.plugin.version}</version>
+                <configuration>
+                    <version>1</version>
+                    <releaseName>${project.artifactId}</releaseName>
+                    <releaseDiscoveryListeners>
+                        <abstractDiscoveryListener/>
+                    </releaseDiscoveryListeners>
+                    <namespace>${k8s.namespace}</namespace>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
