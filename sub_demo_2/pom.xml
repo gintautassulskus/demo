@@ -13,7 +13,6 @@
     <artifactId>sub_demo_2</artifactId>
 
     <properties>
-        <helm.maven.plugin.version>2.7.0.1.0.33</helm.maven.plugin.version>
         <k8s.namespace>sub-demo-2</k8s.namespace>
     </properties>
 
